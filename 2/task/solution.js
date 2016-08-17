@@ -8,7 +8,7 @@ function solve() {
         var fileExplorer = $('.file-explorer');
         var mainUl = $(fileExplorer.children()[1]);
         var allDelButns = $('.del-btn');
-        var filePrev = $('.file-content');
+        var fileContent = $('.file-content');
 
         // create
         var li = $('<li />').addClass('file-item').addClass('item');
@@ -28,7 +28,7 @@ function solve() {
         // add file
         input.on('keypress', function (e) {
             var code = e.keyCode || e.which;
-            if (code == 13) {  
+            if (code == 13) {
                 var newLi = li.clone();
                 var newItemName = itemName.clone();
                 var newDelBtn = delBtn.clone();
@@ -79,11 +79,11 @@ function solve() {
             target.parent().toggleClass('collapsed');
         });
 
-
+        //show content
         mainUl.on('click', '.file-item', function (ev) {
             var target = $(ev.target);
             var content = target.html();
-            filePrev.text(fileContentsByName[content]).html();
+            fileContent.text(fileContentsByName[content]).html();
         });
     };
 }
